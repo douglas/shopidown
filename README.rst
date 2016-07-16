@@ -15,6 +15,15 @@ Features
 
 * Parses simple markdown files
 
+How to run the tests
+--------------------
+
+```bash
+https://github.com/douglas/shopidown.git
+cd shopidown
+python setup.py test
+```
+
 Authors
 -------
 
