@@ -28,13 +28,19 @@ Simple markdown parser for Shopify
 Features
 --------
 
-* TODO
+* Parses simple markdown files
+
+Authors
+-------
+
+* Douglas Soares de Andrade <contato@douglasandrade.com>
+* Guillaume Malette <gmalette@gmail.com>
 
 Credits
 ---------
 
-This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+This package was created with Cookiecutter_ and the `douglas/cookiecutter-pypackage`_ project template.
 
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
-.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+.. _`douglas/cookiecutter-pypackage`: https://github.com/douglas/cookiecutter-pypackage
 
