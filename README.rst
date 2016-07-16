@@ -17,12 +17,11 @@ Features
 
 How to run the tests
 --------------------
+::
 
-```bash
-https://github.com/douglas/shopidown.git
-cd shopidown
-python setup.py test
-```
+    git clone https://github.com/douglas/shopidown.git
+    cd shopidown
+    python setup.py test
 
 Authors
 -------
