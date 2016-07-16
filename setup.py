@@ -10,7 +10,6 @@ with open('HISTORY.rst') as history_file:
 
 requirements = [
     "pip==8.1.2",
-    "setuptools==24.0.2",
     "future==0.15.2",
     "wheel==0.29.0",
 ]
