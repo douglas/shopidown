@@ -201,6 +201,16 @@ def test_improved_guilhaume_markdown_text():
     Paragraph2
 
     # Title *italic* **bold**
+
+    1. ordered item 1
+    2. ordered item 2
+    3. ordered item 3
+    4. ordered item 4
+
+    - list item 1
+    - list item 2
+    - list item 3
+    - list item 4
     """)
 
     output_text = textwrap.dedent("""\
@@ -229,6 +239,20 @@ def test_improved_guilhaume_markdown_text():
     <p>Paragraph2</p>
 
     <h1>Title <em>italic</em> <strong>bold</strong></h1>
+
+    <ol>
+      <li>ordered item 1</li>
+      <li>ordered item 2</li>
+      <li>ordered item 3</li>
+      <li>ordered item 4</li>
+    </ol>
+
+    <ul>
+      <li>list item 1</li>
+      <li>list item 2</li>
+      <li>list item 3</li>
+      <li>list item 4</li>
+    </ul>
     """)
 
     assert parser.parse(input_text) == output_text
