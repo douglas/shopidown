@@ -7,7 +7,6 @@ Simple markdown parser for Shopify
 
 
 * Free software: MIT license
-* Documentation: https://shopidown.readthedocs.io.
 
 
 Features
