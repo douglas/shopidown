@@ -1,3 +1,6 @@
+.. image:: https://travis-ci.org/douglas/shopidown.svg?branch=master
+    :target: https://travis-ci.org/douglas/shopidown
+
 ===============================
 shopidown
 ===============================
