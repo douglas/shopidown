@@ -68,15 +68,15 @@ class Parser(object):
 
         html.append("</ol>\n")
 
-        # Lets empty the unordered items list
+        # Lets empty the ordered items list
         self.ordered_items = []
 
         return "".join(html)
 
     def handle_multiline(self, text):
         """
-        Consider the full text to parse to see if it
-        is a multiline text or not
+        If the input text is a multiline string we
+        need to add a \n to the end of the text
         """
 
         if self.multiline is True:
