@@ -43,33 +43,32 @@ class Parser(object):
         self.ordered_items = []
         self.multiline = False
 
-    def parse_unordered_items(self):
-        """ Parse the collected unordered items """
+    def parse_list_items(self):
+        """ Parse the collected list items """
 
-        html = ["<ul>\n"]
+        html = []
 
-        for item in self.unordered_items:
-            html.append("  <li>%s</li>\n" % item.replace("- ", "", 1))
+        if self.unordered_items:
+            html.append("<ul>\n")
 
-        html.append("</ul>\n")
+            for item in self.unordered_items:
+                html.append("  <li>%s</li>\n" % item.replace("- ", "", 1))
 
-        # Lets empty the unordered items list
-        self.unordered_items = []
+            html.append("</ul>\n")
 
-        return "".join(html)
+            # Lets empty the unordered items list
+            self.unordered_items = []
 
-    def parse_ordered_items(self):
-        """ Parse the collected ordered items """
+        if self.ordered_items:
+            html.append("<ol>\n")
 
-        html = ["<ol>\n"]
+            for item in self.ordered_items:
+                html.append("  <li>%s</li>\n" % re.sub("^[1-9]\\. ", "", item))
 
-        for item in self.ordered_items:
-            html.append("  <li>%s</li>\n" % re.sub("^[1-9]\\. ", "", item))
+            html.append("</ol>\n")
 
-        html.append("</ol>\n")
-
-        # Lets empty the ordered items list
-        self.ordered_items = []
+            # Lets empty the unordered items list
+            self.ordered_items = []
 
         return "".join(html)
 
@@ -112,10 +111,7 @@ class Parser(object):
                 continue
 
             # Lets see if we have to create the ul or ol tree
-            if not line.startswith("- ") and self.unordered_items:
-                html.append(self.parse_unordered_items())
-            elif not re.search("^[1-9]\\. ", line) and self.ordered_items:
-                html.append(self.parse_ordered_items())
+            html.append(self.parse_list_items())
 
             if not line:
                 html.append("\n")
@@ -127,10 +123,9 @@ class Parser(object):
         # If we just had lists on our text we need to
         # process them after the loop
         if self.unordered_items:
-            html.append(self.parse_unordered_items())
-
-        if self.ordered_items:
-            html.append(self.parse_ordered_items())
+            html.append(self.parse_list_items())
+        elif self.ordered_items:
+            html.append(self.parse_list_items())
 
         # Now we will transform the html tokens in
         # html text
